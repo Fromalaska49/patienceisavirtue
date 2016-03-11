@@ -1,0 +1,29 @@
+<html>
+<head>
+	<script type="text/javascript">
+	function textfade(){
+		var v = Number(document.getElementById('data').innerHTML);
+		v = v+1;
+		var vis = Math.sin(v/10);
+		if(vis<0){
+			document.getElementById('text').innerHTML='Patience is a virtue.';
+			vis=Math.abs(vis);
+		}
+		else{
+			document.getElementById('text').innerHTML='Loading...';
+		}
+		document.getElementById('data').innerHTML=v;
+		document.getElementById('text').style.opacity=vis;
+	}
+	</script>
+</head>
+<body onload="window.setInterval(textfade, 200);window.setTimeout(function () {alert('If you\'re still waiting for this to load, the you should know that it\'s an ironic joke. Patience is a virtue.')}, 20000);">
+	<div style="position:fixed;top:50%;left:50%;margin-top:-100px;margin-left:-200px;width:400px;height:300px;font-family:arial;text-align:center;color:#999;">
+		<div id="data" style="display:none;">1</div>
+		<center>
+			<h1 id="text">Loading...</h1>
+			<img src="loading.gif" style="width:150px;height:200px;" />
+		</center>
+	</div>
+</body>
+</html>
