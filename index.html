@@ -4,7 +4,7 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$speed = "slow";
-		$delay = 1000;
+		$delay = 2000;
 		function animateText(){
 			$("#text").html("Thank you for your patience");
 			$("#text").fadeIn($speed);
@@ -44,9 +44,11 @@
 </head>
 <body onload="window.setInterval(textfade, 200);window.setTimeout(function () {alert('If you\'re still waiting for this to load, the you should know that it\'s an ironic joke. Patience is a virtue.')}, 20000);">
 	<div style="position:fixed;top:50%;left:50%;margin-top:-100px;margin-left:-200px;width:400px;height:300px;font-family:arial;text-align:center;color:#000000;">
-		<div id="data" style="display:none;">1</div>
 		<center>
-			<h1 id="text"></h1>
+			<div style="height:150px;width:400px;display:block;">
+				<div id="text" style="font-size:40px;">
+				</div>
+			</div>
 			<img src="loading.gif" style="width:64px;height:64px;" />
 		</center>
 	</div>
