@@ -1,6 +1,25 @@
 <html>
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script type="text/javascript">
+	$(document).ready(function(){
+		$speed = "slow";
+		$delay = 1000;
+		window.setInterval(function(){
+			$("#text").html("Patience is a virtue");
+			$("#text").fadeIn($speed);
+			window.setTimeout(function(){
+				$("#text").fadeOut($speed,$("#text").html("Thank you for your patience"));
+			}, $delay);
+			window.setTimeout(function(){
+				$("#text").fadeIn($speed);
+			}, $delay * 2);
+			window.setTimeout(function(){
+				$("#text").fadeOut($speed);
+			}, $delay * 3);
+		}, $delay * 4);
+	});
+	/*
 	function textfade(){
 		var v = Number(document.getElementById('data').innerHTML);
 		v = v+1;
@@ -15,13 +34,14 @@
 		document.getElementById('data').innerHTML=v;
 		document.getElementById('text').style.opacity=vis;
 	}
+	*/
 	</script>
 </head>
 <body onload="window.setInterval(textfade, 200);window.setTimeout(function () {alert('If you\'re still waiting for this to load, the you should know that it\'s an ironic joke. Patience is a virtue.')}, 20000);">
 	<div style="position:fixed;top:50%;left:50%;margin-top:-100px;margin-left:-200px;width:400px;height:300px;font-family:arial;text-align:center;color:#000000;">
 		<div id="data" style="display:none;">1</div>
 		<center>
-			<h1 id="text">Loading...</h1>
+			<h1 id="text">Thank you for your patience.</h1>
 			<img src="loading.gif" style="width:64px;height:64px;" />
 		</center>
 	</div>
