@@ -5,18 +5,23 @@
 	$(document).ready(function(){
 		$speed = "slow";
 		$delay = 1000;
-		window.setInterval(function(){
-			$("#text").html("Patience is a virtue");
+		function animateText(){
+			$("#text").html("Thank you for your patience");
 			$("#text").fadeIn($speed);
 			window.setTimeout(function(){
-				$("#text").fadeOut($speed,$("#text").html("Thank you for your patience"));
+				$("#text").fadeOut($speed);
 			}, $delay);
 			window.setTimeout(function(){
+				$("#text").html("Patience is a virtue");
 				$("#text").fadeIn($speed);
 			}, $delay * 2);
 			window.setTimeout(function(){
 				$("#text").fadeOut($speed);
 			}, $delay * 3);
+		}
+		animateText();
+		window.setInterval(function(){
+			animateText();
 		}, $delay * 4);
 	});
 	/*
@@ -41,7 +46,7 @@
 	<div style="position:fixed;top:50%;left:50%;margin-top:-100px;margin-left:-200px;width:400px;height:300px;font-family:arial;text-align:center;color:#000000;">
 		<div id="data" style="display:none;">1</div>
 		<center>
-			<h1 id="text">Thank you for your patience.</h1>
+			<h1 id="text"></h1>
 			<img src="loading.gif" style="width:64px;height:64px;" />
 		</center>
 	</div>
